@@ -18,12 +18,12 @@ async function getAdviceAPI() {
   try {
       const respApi = await fetch('https://api.adviceslip.com/advice');
       const adviceData = await respApi.json();
-      idAdvice = adviceData.slip.id;
-      fraseAdvice = adviceData.slip.advice
+      idAdvice = `ADVICE #${adviceData.slip.id}`;
+      fraseAdvice = `"${adviceData.slip.advice}"`
       
   } catch (error) {
-      idAdvice = '0000';
-      fraseAdvice = `'Apologies, I'm the one who needs help'`
+      idAdvice = 'ADVICE #0000';
+      fraseAdvice = `"Apologies, I'm the one who needs help"`
       
       console.log(error);
   } finally {
